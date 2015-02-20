@@ -13,7 +13,9 @@
 		3D8A77201A96FCCB006E4766 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8A771E1A96FCCB006E4766 /* Main.storyboard */; };
 		3D8A77221A96FCCB006E4766 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8A77211A96FCCB006E4766 /* Images.xcassets */; };
 		3D8A77251A96FCCB006E4766 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8A77231A96FCCB006E4766 /* LaunchScreen.xib */; };
-		3D8A77311A96FCCB006E4766 /* KMGExaminatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A77301A96FCCB006E4766 /* KMGExaminatorTests.swift */; };
+		3D8A773C1A9706DC006E4766 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A773B1A9706DC006E4766 /* Student.swift */; };
+		3D8A77411A970AB3006E4766 /* StudentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A77401A970AB3006E4766 /* StudentTests.swift */; };
+		3D8A77421A970AE7006E4766 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A773B1A9706DC006E4766 /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,9 @@
 		3D8A77241A96FCCB006E4766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3D8A772A1A96FCCB006E4766 /* KMGExaminatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMGExaminatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8A772F1A96FCCB006E4766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D8A77301A96FCCB006E4766 /* KMGExaminatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMGExaminatorTests.swift; sourceTree = "<group>"; };
+		3D8A773B1A9706DC006E4766 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		3D8A773D1A970A84006E4766 /* KMGExaminatorTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMGExaminatorTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		3D8A77401A970AB3006E4766 /* StudentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		3D8A77151A96FCCB006E4766 /* KMGExaminator */ = {
 			isa = PBXGroup;
 			children = (
+				3D8A773A1A9706A4006E4766 /* Model */,
 				3D8A77181A96FCCB006E4766 /* AppDelegate.swift */,
 				3D8A771A1A96FCCB006E4766 /* MasterViewController.swift */,
 				3D8A771C1A96FCCB006E4766 /* DetailViewController.swift */,
@@ -101,8 +106,9 @@
 		3D8A772D1A96FCCB006E4766 /* KMGExaminatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				3D8A77301A96FCCB006E4766 /* KMGExaminatorTests.swift */,
 				3D8A772E1A96FCCB006E4766 /* Supporting Files */,
+				3D8A773D1A970A84006E4766 /* KMGExaminatorTests-Bridging-Header.h */,
+				3D8A77401A970AB3006E4766 /* StudentTests.swift */,
 			);
 			path = KMGExaminatorTests;
 			sourceTree = "<group>";
@@ -113,6 +119,14 @@
 				3D8A772F1A96FCCB006E4766 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D8A773A1A9706A4006E4766 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D8A773B1A9706DC006E4766 /* Student.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +232,7 @@
 				3D8A771D1A96FCCB006E4766 /* DetailViewController.swift in Sources */,
 				3D8A771B1A96FCCB006E4766 /* MasterViewController.swift in Sources */,
 				3D8A77191A96FCCB006E4766 /* AppDelegate.swift in Sources */,
+				3D8A773C1A9706DC006E4766 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +240,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D8A77311A96FCCB006E4766 /* KMGExaminatorTests.swift in Sources */,
+				3D8A77411A970AB3006E4766 /* StudentTests.swift in Sources */,
+				3D8A77421A970AE7006E4766 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -373,6 +390,8 @@
 				INFOPLIST_FILE = KMGExaminatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KMGExaminatorTests/KMGExaminatorTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMGExaminator.app/KMGExaminator";
 			};
 			name = Debug;
@@ -381,6 +400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -388,6 +408,7 @@
 				INFOPLIST_FILE = KMGExaminatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KMGExaminatorTests/KMGExaminatorTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMGExaminator.app/KMGExaminator";
 			};
 			name = Release;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -20,7 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
+        initParse(launchOptions)
         return true
+    }
+    
+    func initParse(launchOptions: [NSObject: AnyObject]?){
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("iDvw3V8J61776l1gqv5EfiALzyl2bP7B6ASqOgDq", clientKey: "EpgzkNVauzPkJ6vNk8PoZQXmh1rm9pbBUtg6YPhr")
+        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: { (flag, error) -> Void in
+            //do nothing
+        })
     }
 
     func applicationWillResignActive(application: UIApplication) {

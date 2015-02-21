@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -83,6 +84,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             let score = Student.getScoreTypes()[sender.selectedSegmentIndex]
             let marker = Student.getMarkers()[sender.tag]
             unwrapedStudent.scores[marker] = score
+            let testObject = PFObject(className: "Student")
+            testObject["firstName"] = "Steve"
+            testObject.saveInBackgroundWithBlock({ (flag, error) -> Void in
+                //do nothing
+            })
         }
     }
     

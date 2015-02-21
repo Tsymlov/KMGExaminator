@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
         initParse(launchOptions)
+        Student.downloadMarkers()
         return true
     }
     

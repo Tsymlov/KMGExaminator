@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Parse
+
+private var _markers = Array<String>()
 
 class Student {
     var firstName: String
@@ -43,7 +46,23 @@ class Student {
     }
     
     class func getMarkers() -> Array<String>{
-        return ["Стойки и перемещения ПП", "Стойки и перемещения БС", "Прямые удары"]
+        return _markers
+    }
+    
+    class func downloadMarkers(){
+        downloadMarkersFromParse()
+    }
+    
+    private class func downloadMarkersFromParse(){
+        let query = PFQuery(className: "Marker")
+        query.orderByAscending("index")
+        let objects = query.findObjects()
+        println("Successfully retrieved \(objects.count) markers.")
+        for object in objects {
+            let markerName = object["name"] as String
+            println("\(markerName)")
+            _markers.append(markerName)
+        }
     }
     
     class func getScoreTypes() -> Array<String>{

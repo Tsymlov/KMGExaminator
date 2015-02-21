@@ -16,6 +16,7 @@
 		3D8A773C1A9706DC006E4766 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A773B1A9706DC006E4766 /* Student.swift */; };
 		3D8A77411A970AB3006E4766 /* StudentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A77401A970AB3006E4766 /* StudentTests.swift */; };
 		3D8A77421A970AE7006E4766 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A773B1A9706DC006E4766 /* Student.swift */; };
+		3D8A774B1A9876D2006E4766 /* ScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A774A1A9876D2006E4766 /* ScoreCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +33,8 @@
 		3D8A77131A96FCCB006E4766 /* KMGExaminator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMGExaminator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8A77171A96FCCB006E4766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D8A77181A96FCCB006E4766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D8A771A1A96FCCB006E4766 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		3D8A771C1A96FCCB006E4766 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3D8A771A1A96FCCB006E4766 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ../MasterViewController.swift; sourceTree = "<group>"; };
+		3D8A771C1A96FCCB006E4766 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
 		3D8A771F1A96FCCB006E4766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D8A77211A96FCCB006E4766 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3D8A77241A96FCCB006E4766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		3D8A773B1A9706DC006E4766 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		3D8A773D1A970A84006E4766 /* KMGExaminatorTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMGExaminatorTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D8A77401A970AB3006E4766 /* StudentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTests.swift; sourceTree = "<group>"; };
+		3D8A774A1A9876D2006E4766 /* ScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,13 +85,9 @@
 		3D8A77151A96FCCB006E4766 /* KMGExaminator */ = {
 			isa = PBXGroup;
 			children = (
+				3D8A77491A987647006E4766 /* Controllers */,
+				3D8A77471A987620006E4766 /* Views */,
 				3D8A773A1A9706A4006E4766 /* Model */,
-				3D8A77181A96FCCB006E4766 /* AppDelegate.swift */,
-				3D8A771A1A96FCCB006E4766 /* MasterViewController.swift */,
-				3D8A771C1A96FCCB006E4766 /* DetailViewController.swift */,
-				3D8A771E1A96FCCB006E4766 /* Main.storyboard */,
-				3D8A77211A96FCCB006E4766 /* Images.xcassets */,
-				3D8A77231A96FCCB006E4766 /* LaunchScreen.xib */,
 				3D8A77161A96FCCB006E4766 /* Supporting Files */,
 			);
 			path = KMGExaminator;
@@ -98,6 +96,8 @@
 		3D8A77161A96FCCB006E4766 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3D8A77211A96FCCB006E4766 /* Images.xcassets */,
+				3D8A77181A96FCCB006E4766 /* AppDelegate.swift */,
 				3D8A77171A96FCCB006E4766 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -106,9 +106,8 @@
 		3D8A772D1A96FCCB006E4766 /* KMGExaminatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				3D8A772E1A96FCCB006E4766 /* Supporting Files */,
-				3D8A773D1A970A84006E4766 /* KMGExaminatorTests-Bridging-Header.h */,
 				3D8A77401A970AB3006E4766 /* StudentTests.swift */,
+				3D8A772E1A96FCCB006E4766 /* Supporting Files */,
 			);
 			path = KMGExaminatorTests;
 			sourceTree = "<group>";
@@ -116,6 +115,7 @@
 		3D8A772E1A96FCCB006E4766 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3D8A773D1A970A84006E4766 /* KMGExaminatorTests-Bridging-Header.h */,
 				3D8A772F1A96FCCB006E4766 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -127,6 +127,25 @@
 				3D8A773B1A9706DC006E4766 /* Student.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3D8A77471A987620006E4766 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D8A77231A96FCCB006E4766 /* LaunchScreen.xib */,
+				3D8A771E1A96FCCB006E4766 /* Main.storyboard */,
+				3D8A774A1A9876D2006E4766 /* ScoreCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3D8A77491A987647006E4766 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D8A771A1A96FCCB006E4766 /* MasterViewController.swift */,
+				3D8A771C1A96FCCB006E4766 /* DetailViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +197,7 @@
 				TargetAttributes = {
 					3D8A77121A96FCCB006E4766 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = FLGLYU48EN;
 					};
 					3D8A77291A96FCCB006E4766 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -232,6 +252,7 @@
 				3D8A771D1A96FCCB006E4766 /* DetailViewController.swift in Sources */,
 				3D8A771B1A96FCCB006E4766 /* MasterViewController.swift in Sources */,
 				3D8A77191A96FCCB006E4766 /* AppDelegate.swift in Sources */,
+				3D8A774B1A9876D2006E4766 /* ScoreCell.swift in Sources */,
 				3D8A773C1A9706DC006E4766 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +283,7 @@
 				3D8A771F1A96FCCB006E4766 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		3D8A77231A96FCCB006E4766 /* LaunchScreen.xib */ = {
@@ -270,6 +292,7 @@
 				3D8A77241A96FCCB006E4766 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -358,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = KMGExaminator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = KMGExaminator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +457,7 @@
 				3D8A77361A96FCCB006E4766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D8A77371A96FCCB006E4766 /* Build configuration list for PBXNativeTarget "KMGExaminatorTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +466,7 @@
 				3D8A77391A96FCCB006E4766 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

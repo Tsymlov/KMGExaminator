@@ -57,6 +57,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             unwrapedStudent.secondName = secondName.text
             unwrapedStudent.lastName = lastName.text
             updateNamesInMasterView()
+            unwrapedStudent.update()
         }
     }
 
@@ -82,25 +83,21 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func scoreTapped(sender: UISegmentedControl) {
         if let unwrapedStudent = student{
             let score = Student.getScoreTypes()[sender.selectedSegmentIndex]
-            let marker = Student.getMarkers()[sender.tag]
+            let marker = Markers.values[sender.tag]
             unwrapedStudent.scores[marker] = score
-            let testObject = PFObject(className: "Student")
-            testObject["firstName"] = "Steve"
-            testObject.saveInBackgroundWithBlock({ (flag, error) -> Void in
-                //do nothing
-            })
+            unwrapedStudent.update()
         }
     }
     
     // MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Student.getMarkers().count
+        return Markers.values.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             if let cell = tableView.dequeueReusableCellWithIdentifier("cell") as? ScoreCell {
-                let marker = Student.getMarkers()[indexPath.row]
+                let marker = Markers.values[indexPath.row]
                 cell.marker.text = marker
 
                 if let unwrapedStudent = student {

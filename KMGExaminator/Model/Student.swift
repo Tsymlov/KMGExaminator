@@ -9,7 +9,7 @@
 import Foundation
 import Parse
 
-private var _markers = Array<String>()
+
 
 class Student {
     var firstName: String
@@ -21,18 +21,10 @@ class Student {
         }
     }
     var scores: Dictionary<String, String>
-    
-    init(){
-        lastName = "Новый"
-        firstName = "студент"
-        secondName = ""
-        scores = Dictionary<String,String>()
-        initScores()
-    }
+    var pfObject: PFObject
     
     func initScores(){
-        let markers = Student.getMarkers()
-        for marker in markers {
+        for marker in Markers.values {
             scores[marker] = "+"
         }
     }
@@ -42,11 +34,9 @@ class Student {
         self.secondName = secondName
         self.lastName = lastName
         scores = Dictionary<String,String>()
+        pfObject = PFObject(className: "Student")
+        refreshPFObject()
         initScores()
-    }
-    
-    class func getMarkers() -> Array<String>{
-        return _markers
     }
     
     class func downloadMarkers(){
@@ -60,12 +50,71 @@ class Student {
         println("Successfully retrieved \(objects.count) markers.")
         for object in objects {
             let markerName = object["name"] as String
+            Markers.values.append(markerName)
             println("\(markerName)")
-            _markers.append(markerName)
         }
     }
     
     class func getScoreTypes() -> Array<String>{
         return ["+", "+-", "-+", "-"]
     }
+    
+    func saveEventualy(){
+        saveEventualyAtParse()
+    }
+    
+    private func saveAtParse(success: ()->()){
+        refreshPFObject();
+        self.pfObject.saveEventually { (result, error) -> Void in
+            println("Student \(self.pfObject.objectId) \(self.fullName) saved in Parse")
+            success()
+        }
+    }
+    
+    private func refreshPFObject(){
+        self.pfObject["firstName"] = self.firstName
+        self.pfObject["secondName"] = self.secondName
+        self.pfObject["lastName"] = self.lastName
+        self.pfObject["scores"] = self.scores
+    }
+    
+    private func saveEventualyAtParse(){
+        saveAtParse({})
+    }
+    
+    func update(){
+        updateAtParse({})
+    }
+    
+    private func updateAtParse(success: ()->()){
+        refreshPFObject()
+        self.pfObject.saveInBackgroundWithBlock { (flag, error) -> Void in
+            if error != nil
+            {
+                println("Error: \(error.userInfo)")
+            }else{
+                println("Student \(self.pfObject.objectId) \(self.fullName) updated in Parse")
+                success()
+            }
+        }
+    }
+    
+    func delete(){
+        deleteAtParse { (flag, error) -> Void in
+            if error != nil
+            {
+                println("Error: \(error.userInfo)")
+            }else{
+                println("Student \(self.pfObject.objectId) \(self.fullName) deleted in Parse")
+            }
+        }
+    }
+    
+    private func deleteAtParse(success: PFBooleanResultBlock){
+        self.pfObject.deleteInBackgroundWithBlock (success)
+    }
+}
+
+struct Markers {
+    static var values = Array<String>()
 }

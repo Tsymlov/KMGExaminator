@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import Parse
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = NSMutableArray()
-
+    var students = NSMutableArray()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,9 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        loadStudents()
+        
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
@@ -30,13 +32,37 @@ class MasterViewController: UITableViewController {
         let controllers = self.splitViewController!.viewControllers
         self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
     }
+    
+    
+    func loadStudents(){
+        let query = PFQuery(className: "Student")
+        query.orderByAscending("lastName")
+        let receivedStudents = query.findObjects()
+        println("Successfully retrieved \(students.count) students.")
+        for pfStudent in receivedStudents {
+            let studentLastName = pfStudent["lastName"] as String
+            let studentFirstName = pfStudent["firstName"] as String
+            let studentSecondName = pfStudent["secondName"] as String
+            let studentScore = pfStudent["scores"] as Dictionary<String,String>
+            
+            
+            let student = Student(studentFirstName, studentSecondName, studentLastName);
+            student.scores = pfStudent["scores"] as Dictionary<String,String>
+            student.pfObject = pfStudent as PFObject
+            println("\(student.fullName)")
+            students.addObject(student)
+        }
+    }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insertObject(Student(), atIndex: 0)
+        let newStudent = Student("студент", "", "Новый")
+        newStudent.saveEventualy()
+        students.insertObject(newStudent, atIndex: 0)
+        
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         self.tableView.reloadData()
-        self.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.None)
+        self.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
         self.performSegueWithIdentifier("showDetail", sender: self)
     }
 
@@ -45,7 +71,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as Student
+                let object = students[indexPath.row] as Student
                 let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
                 controller.student = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -61,13 +87,13 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return students.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
-        let object = objects[indexPath.row] as Student
+        let object = students[indexPath.row] as Student
         cell.textLabel!.text = object.fullName
         return cell
     }
@@ -79,7 +105,9 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeObjectAtIndex(indexPath.row)
+            let student = students[indexPath.row] as Student
+            student.delete()
+            students.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

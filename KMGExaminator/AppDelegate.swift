@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         splitViewController.delegate = self
         initParse(launchOptions)
         Student.downloadMarkers()
+        
+        
+        
         return true
     }
     

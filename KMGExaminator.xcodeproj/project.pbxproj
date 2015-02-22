@@ -38,6 +38,8 @@
 		3DACD3EE1A98B0E000606A3E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DACD3ED1A98B0E000606A3E /* SystemConfiguration.framework */; };
 		3DACD3F01A98B0EF00606A3E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DACD3EF1A98B0EF00606A3E /* libz.dylib */; };
 		3DACD3F21A98B0FC00606A3E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DACD3F11A98B0FC00606A3E /* libsqlite3.dylib */; };
+		3DF330621A99DA5B007C091C /* PopoverContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF330601A99DA5B007C091C /* PopoverContentViewController.swift */; };
+		3DF330631A99DA5B007C091C /* PopoverContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF330611A99DA5B007C091C /* PopoverContentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		3DACD3ED1A98B0E000606A3E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3DACD3EF1A98B0EF00606A3E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		3DACD3F11A98B0FC00606A3E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		3DF330601A99DA5B007C091C /* PopoverContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverContentViewController.swift; sourceTree = "<group>"; };
+		3DF330611A99DA5B007C091C /* PopoverContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverContentViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 		3D8A77471A987620006E4766 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3DF330611A99DA5B007C091C /* PopoverContentViewController.xib */,
 				3D8A77231A96FCCB006E4766 /* LaunchScreen.xib */,
 				3D8A771E1A96FCCB006E4766 /* Main.storyboard */,
 				3D8A774A1A9876D2006E4766 /* ScoreCell.swift */,
@@ -201,6 +206,7 @@
 		3D8A77491A987647006E4766 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3DF330601A99DA5B007C091C /* PopoverContentViewController.swift */,
 				3D8A771A1A96FCCB006E4766 /* MasterViewController.swift */,
 				3D8A771C1A96FCCB006E4766 /* DetailViewController.swift */,
 			);
@@ -320,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF330631A99DA5B007C091C /* PopoverContentViewController.xib in Resources */,
 				3D8A77201A96FCCB006E4766 /* Main.storyboard in Resources */,
 				3D8A77251A96FCCB006E4766 /* LaunchScreen.xib in Resources */,
 				3D8A77221A96FCCB006E4766 /* Images.xcassets in Resources */,
@@ -340,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF330621A99DA5B007C091C /* PopoverContentViewController.swift in Sources */,
 				3D8A771D1A96FCCB006E4766 /* DetailViewController.swift in Sources */,
 				3D8A771B1A96FCCB006E4766 /* MasterViewController.swift in Sources */,
 				3D8A77191A96FCCB006E4766 /* AppDelegate.swift in Sources */,

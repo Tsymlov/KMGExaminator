@@ -40,15 +40,20 @@ class MasterViewController: UITableViewController {
         let receivedStudents = query.findObjects()
         println("Successfully retrieved \(students.count) students.")
         for pfStudent in receivedStudents {
+            
             let studentLastName = pfStudent["lastName"] as String
             let studentFirstName = pfStudent["firstName"] as String
             let studentSecondName = pfStudent["secondName"] as String
+            let studentLevel = pfStudent["level"] as String
+            let studentGroup = pfStudent["group"] as String
             let studentScore = pfStudent["scores"] as Dictionary<String,String>
             
-            
             let student = Student(studentFirstName, studentSecondName, studentLastName);
+            student.level = studentLevel
+            student.group = studentGroup
             student.scores = pfStudent["scores"] as Dictionary<String,String>
             student.pfObject = pfStudent as PFObject
+            
             println("\(student.fullName)")
             students.addObject(student)
         }

@@ -15,6 +15,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var secondName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var scores: UITableView!
+    @IBOutlet weak var group: UITextField!
+    @IBOutlet weak var level: UITextField!
 
     var student: Student? {
         didSet {
@@ -41,6 +43,14 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             if let tableView = self.scores{
                 tableView.hidden = false
             }
+            if let textField = self.group{
+                textField.text = unwrapedStudent.group
+                textField.enabled = true
+            }
+            if let textField = self.level{
+                textField.text = unwrapedStudent.level
+                textField.enabled = true
+            }
         }
     }
 
@@ -56,6 +66,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             unwrapedStudent.firstName = firstName.text
             unwrapedStudent.secondName = secondName.text
             unwrapedStudent.lastName = lastName.text
+            unwrapedStudent.group = group.text
+            unwrapedStudent.level = level.text
             updateNamesInMasterView()
             unwrapedStudent.update()
         }

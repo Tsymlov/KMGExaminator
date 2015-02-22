@@ -29,12 +29,17 @@ class Student {
         }
     }
     
+    var group: String
+    var level: String
+    
     init(_ firstName: String, _ secondName: String, _ lastName: String){
         self.firstName = firstName
         self.secondName = secondName
         self.lastName = lastName
         scores = Dictionary<String,String>()
         pfObject = PFObject(className: "Student")
+        group = ""
+        level = ""
         refreshPFObject()
         initScores()
     }
@@ -76,6 +81,8 @@ class Student {
         self.pfObject["secondName"] = self.secondName
         self.pfObject["lastName"] = self.lastName
         self.pfObject["scores"] = self.scores
+        self.pfObject["level"] = self.level
+        self.pfObject["group"] = self.group
     }
     
     private func saveEventualyAtParse(){
